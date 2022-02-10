@@ -2,7 +2,7 @@
 ### Collaborators:
 Junhao Wang\
 Zihao Liu \
-Tingwei Liu 
+Tingwei Liu \
 
 ### Instructor:
 Tim Hickey 
