@@ -1,2 +1,8 @@
 # PA01_cs103a
-A test for pushing
+Collaborators:
+Junhao Wang
+Zihao Liu
+Tingwei Liu
+
+Instructor:
+Tim Hickey
