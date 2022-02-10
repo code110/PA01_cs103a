@@ -1,8 +1,8 @@
 # PA01_cs103a
 ### Collaborators:
-Junhao Wang /n
-Zihao Liu /n
-Tingwei Liu /n
+Junhao Wang\
+Zihao Liu \
+Tingwei Liu \
 
-### Instructor:/n
-Tim Hickey /n
+### Instructor:
+Tim Hickey \
