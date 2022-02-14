@@ -60,4 +60,4 @@ class Schedule():
 
     def recitation(self):
         #filters courses have a reicitation.
-        return Schedual([cousrse for course in self.courses for j in cousrse['times'] if 'Recitation' in j.values())
+        return Schedual([cousrse for course in self.courses for j in cousrse['times'] if 'Recitation' in j.values()])
