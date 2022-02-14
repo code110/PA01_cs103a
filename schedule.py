@@ -50,3 +50,14 @@ class Schedule():
             print("can't sort by "+str(field)+" yet")
             return self
  
+    def title(self,phrase):
+        #filters courses containing the phrase in their title
+        return Schedule([course for course in self.courses if phrase in course['name']])
+
+    def description(self,phrase):
+        #filters courses containing the phrase in the description
+        return Schedule([course for course in self.courses if phrase in course['description']])
+
+    def recitation(self):
+        #filters courses have a reicitation.
+        return Schedual([cousrse for course in self.courses for j in cousrse['times'] if 'Recitation' in j.values())
