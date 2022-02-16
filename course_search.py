@@ -23,6 +23,7 @@ timeofday (filter by day and time, e.g. meets at 11 on Wed)
 '''
 
 terms = {c['term'] for c in schedule.courses}
+subjects = {c['subject'] for c in schedule.courses}
 
 def topmenu():
     '''
@@ -45,8 +46,30 @@ def topmenu():
             term = input("enter a term:"+str(terms)+":")
             schedule = schedule.term([term]).sort('subject')
         elif command in ['s','subject']:
-            subject = input("enter a subject:")
+            subject = input("enter a subject:"+str(subjects)+":")
             schedule = schedule.subject([subject])
+        elif command in ['c', 'course']:                # Junhao Wang
+            courses = input("enter a course number:")
+            course = courses.split()
+            schedule = schedule.subject([course[0]])
+            schedule = schedule.coursenum(course[1])
+        elif command in ['i', 'instructor']:            # Junhao Wang
+            instructor = input("enter a instructor's email or lastname:")
+            if "@" in instructor:
+                schedule = schedule.email([instructor])
+            else:
+                schedule = schedule.lastname([instructor])
+        elif command in ['ti', 'title']:                # Junhao Wang
+            title = input("enter a title:")
+            schedule = schedule.title(title)
+        elif command in ['d', 'description']:           # Junhao Wang
+            description = input("enter a description:")
+            schedule = schedule.description(description)
+        elif command in ['time', 'timeofday']:          # Junhao Wang
+            timeofdays = input("enter a time of day: such as '11 on w' m for Mon, tu for Tue, w for Wed, th for Thur, f for Fri, sa for Sat, su for Sun")
+            timeofday =timeofdays.split()
+            schedule = schedule.time(int(timeofday[0]))
+            schedule = schedule.day(timeofday[2])
         else:
             print('command',command,'is not supported')
             continue
@@ -56,6 +79,11 @@ def topmenu():
         for course in schedule.courses[:10]:
             print_course(course)
         print('\n'*3)
+
+        # To rewrite schedule for next search            # Junhao Wang
+        schedule = Schedule()
+        schedule.load_courses()
+        schedule = schedule.enrolled(range(5,1000))
 
 def print_course(course):
     '''

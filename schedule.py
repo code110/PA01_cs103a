@@ -4,6 +4,9 @@ by filtering, mapping, printing, etc.
 '''
 
 import json
+import re
+import sched
+from tkinter.messagebox import RETRY
 
 class Schedule():
     '''
@@ -60,4 +63,15 @@ class Schedule():
 
     def recitation(self):
         #filters courses have a reicitation.
-        return Schedual([cousrse for course in self.courses for j in cousrse['times'] if 'Recitation' in j.values()])
+        return Schedule([course for course in self.courses for j in course['times'] if 'Recitation' in j.values()])
+    
+    def coursenum(self,coursenums):
+        #filters courses by course number   Junhao Wang
+        return  Schedule([course for course in self.courses if course['coursenum'] in coursenums])
+
+    def time(self,times):
+        #filters courses by course time     Junhao Wang
+        return Schedule([course for course in self.courses if len(course['times']) != 0 and  course['times'][0]['start']==times*100])
+    def day(self,days):
+        #filters courses by day             Junhao Wang
+        return Schedule([course for course in self.courses if len(course['times']) != 0 and  days in course['times'][0]['days']])
