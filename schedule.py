@@ -54,15 +54,15 @@ class Schedule():
             return self
  
     def title(self,phrase):
-        #filters courses containing the phrase in their title
+        #filters courses containing the phrase in their title   Tingwie Liu
         return Schedule([course for course in self.courses if phrase in course['name']])
 
     def description(self,phrase):
-        #filters courses containing the phrase in the description
+        #filters courses containing the phrase in the description   Tingwei Liu
         return Schedule([course for course in self.courses if phrase in course['description']])
 
     def recitation(self):
-        #filters courses have a reicitation.
+        #filters courses have a reicitation.    Tingwei Liu
         return Schedule([course for course in self.courses for j in course['times'] if 'Recitation' in j.values()])
     
     def coursenum(self,coursenums):
