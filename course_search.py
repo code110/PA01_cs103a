@@ -70,6 +70,8 @@ def topmenu():
             timeofday =timeofdays.split()
             schedule = schedule.time(int(timeofday[0]))
             schedule = schedule.day(timeofday[2])
+        elif command in ['w', 'waiting']:
+            schedule = schedule.waiting(0)
         else:
             print('command',command,'is not supported')
             continue
