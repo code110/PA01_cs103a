@@ -65,6 +65,7 @@ def topmenu():
             description = input("enter a description:")
             schedule = schedule.description(description)
         elif command in ['time', 'timeofday']:          # Junhao Wang
+            '''filter the course by time of day, but must be exact the time and the day'''
             timeofdays = input("enter a time of day: such as '1100 on w' m for Mon, tu for Tue, " + 
             "w for Wed, th for Thur, f for Fri, sa for Sat, su for Sun: ")
             timeofday =timeofdays.split()
@@ -93,4 +94,3 @@ def print_course(course):
 
 if __name__ == '__main__':
     topmenu()
-
