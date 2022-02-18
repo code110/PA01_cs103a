@@ -1,4 +1,5 @@
 .DS_Store
 .ipynb*
 *~
+test_*
 __pycache__
