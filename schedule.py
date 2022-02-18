@@ -75,3 +75,6 @@ class Schedule():
     def day(self,days):
         #filters courses by day             Junhao Wang
         return Schedule([course for course in self.courses if len(course['times']) != 0 and  days in course['times'][0]['days']])
+    def subject(self, subject):
+        #filters courses by subject         Zihao Liu
+        return Schedule([course for course in self.courses if course["subject"] == subject])
