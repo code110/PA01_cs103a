@@ -70,7 +70,7 @@ class Schedule():
     def time(self,times):
         '''filters courses by course time     Junhao Wang'''
         return Schedule([course for course in self.courses
-                        if len(course['times']) != 0 and course['times'][0]['start']==times*100])
+                        if len(course['times']) != 0 and course['times'][0]['start']==times])
 
     def day(self,days):
         '''filters courses by day             Junhao Wang'''

@@ -65,9 +65,8 @@ def topmenu():
             description = input("enter a description:")
             schedule = schedule.description(description)
         elif command in ['time', 'timeofday']:          # Junhao Wang
-            timeofdays = input('''enter a time of day: such as '11 on w' m for Mon, 
-                                tu for Tue, w for Wed, th for Thur, f for Fri, 
-                                sa for Sat, su for Sun: ''')
+            timeofdays = input("enter a time of day: such as '1100 on w' m for Mon, tu for Tue, " + 
+            "w for Wed, th for Thur, f for Fri, sa for Sat, su for Sun: ")
             timeofday =timeofdays.split()
             schedule = schedule.time(int(timeofday[0]))
             schedule = schedule.day(timeofday[2])
