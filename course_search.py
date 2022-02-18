@@ -82,11 +82,6 @@ def topmenu():
             print_course(course)
         print('\n'*3)
 
-        # To rewrite schedule for next search            # Junhao Wang
-        schedule = Schedule()
-        schedule.load_courses()
-        schedule = schedule.enrolled(range(5,1000))
-
 def print_course(course):
     '''
     print_course prints a brief description of the course
