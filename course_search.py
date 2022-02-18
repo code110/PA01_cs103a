@@ -72,7 +72,7 @@ def topmenu():
             schedule = schedule.day(timeofday[2])
         elif command in ['w', 'waiting']:
             schedule = schedule.waiting(0)
-        elif command in ['reci','recitation']:   #Tingwie Liu
+        elif command in ['reci','recitation']:   #Tingwie Liu  Have recitation or not 
             schdeule=schedule.recitation()
         else:
             print('command',command,'is not supported')
