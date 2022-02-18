@@ -4,9 +4,6 @@ by filtering, mapping, printing, etc.
 '''
 
 import json
-import re
-import sched
-from tkinter.messagebox import RETRY
 
 class Schedule():
     '''
@@ -47,33 +44,39 @@ class Schedule():
         return Schedule([course for course in self.courses if course['subject'] in subjects])
 
     def sort(self,field):
+        '''sort'''
         if field=='subject':
             return Schedule(sorted(self.courses, key= lambda course: course['subject']))
-        else:
-            print("can't sort by "+str(field)+" yet")
-            return self
- 
+        print("can't sort by "+str(field)+" yet")
+        return self
+
     def title(self,phrase):
-        #filters courses containing the phrase in their title   Tingwie Liu
+        '''filters courses containing the phrase in their title   Tingwie Liu'''
         return Schedule([course for course in self.courses if phrase in course['name']])
 
     def description(self,phrase):
-        #filters courses containing the phrase in the description   Tingwei Liu
+        '''filters courses containing the phrase in the description   Tingwei Liu'''
         return Schedule([course for course in self.courses if phrase in course['description']])
 
     def recitation(self):
-        #filters courses have a reicitation.    Tingwei Liu
-        return Schedule([course for course in self.courses for j in course['times'] if 'Recitation' in j.values()])
-    
+        '''filters courses have a reicitation.    Tingwei Liu'''
+        return Schedule([course for course in self.courses
+                         for j in course['times'] if 'Recitation' in j.values()])
+
     def coursenum(self,coursenums):
-        #filters courses by course number   Junhao Wang
-        return  Schedule([course for course in self.courses if course['coursenum'] in coursenums])
+        '''filters courses by course number   Junhao Wang'''
+        return Schedule([course for course in self.courses if course['coursenum'] in coursenums])
 
     def time(self,times):
-        #filters courses by course time     Junhao Wang
-        return Schedule([course for course in self.courses if len(course['times']) != 0 and  course['times'][0]['start']==times*100])
+        '''filters courses by course time     Junhao Wang'''
+        return Schedule([course for course in self.courses
+                        if len(course['times']) != 0 and course['times'][0]['start']==times])
+
     def day(self,days):
-        #filters courses by day             Junhao Wang
-        return Schedule([course for course in self.courses if len(course['times']) != 0 and  days in course['times'][0]['days']])
-    def waiting(self, waitNum):
-        return Schedule([course for course in self.courses if course["waiting"] > waitNum])
+        '''filters courses by day             Junhao Wang'''
+        return Schedule([course for course in self.courses
+                        if len(course['times']) != 0 and  days in course['times'][0]['days']])
+
+    def waiting(self, wait_num):
+        '''filter course by waiting number'''
+        return Schedule([course for course in self.courses if course["waiting"] > wait_num])
